@@ -1,0 +1,6 @@
+LOAD CSV WITH HEADERS FROM 'file:///papers.csv' AS row
+MERGE (p:Paper {paper_id: row.paper_id})
+SET p.filename = row.filename,
+    p.title    = row.title,
+    p.booktitle = row.booktitle,
+    p.authors  = row.authors
